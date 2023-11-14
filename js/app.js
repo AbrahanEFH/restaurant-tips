@@ -15,9 +15,17 @@ function guardarCliente() {
     const camposVacios = [mesa, hora].some(campo => campo === '')
 
     if (camposVacios) {
-        const alerta = document.createElement('DIV')
-        alerta.classList.add('invalid-feedback', 'd-block', 'text-center')
-        alerta.textContent = 'Todos los campos son obligatorios'
+        // Verificar si existe la alerta
+        const existeAlerta = document.querySelector('.existe')
+
+        if (!existeAlerta) {
+            const alerta = document.createElement('DIV')
+            alerta.classList.add('existe', 'invalid-feedback', 'd-block', 'text-center')
+            alerta.textContent = 'Todos los campos son obligatorios'
+            document.querySelector('.modal-body form').appendChild(alerta)
+
+        }
+
 
     } else {
         console.log(' Todos los campos estan llenops')
