@@ -15,7 +15,10 @@ function guardarCliente() {
     const camposVacios = [mesa, hora].some(campo => campo === '')
 
     if (camposVacios) {
-        console.log('si hay al menos un campo vacio')
+        const alerta = document.createElement('DIV')
+        alerta.classList.add('invalid-feedback', 'd-block', 'text-center')
+        alerta.textContent = 'Todos los campos son obligatorios'
+
     } else {
         console.log(' Todos los campos estan llenops')
     }
