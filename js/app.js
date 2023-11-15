@@ -40,4 +40,12 @@ function guardarCliente() {
     const modalBootstrap = bootstrap.Modal.getInstance(modalFormulario)
     modalBootstrap.hide()
 
+
+    //Mostrar las secciones
+    mostrarSecciones()
+}
+
+function mostrarSecciones() {
+    const seccionOculta = document.querySelectorAll('.d-none')
+    seccionOculta.forEach(seccion => seccion.classList.remove('d-none'))
 }
