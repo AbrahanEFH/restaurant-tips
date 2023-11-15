@@ -24,10 +24,20 @@ function guardarCliente() {
             alerta.textContent = 'Todos los campos son obligatorios'
             document.querySelector('.modal-body form').appendChild(alerta)
 
+            setTimeout(() => {
+                alerta.remove()
+            }, 3000);
         }
+        return
 
-
-    } else {
-        console.log(' Todos los campos estan llenops')
     }
+
+    // Asginar datos del formulario al objeto de cliente
+    cliente = { ...cliente, mesa, hora }
+
+    // Ocultar Modal
+    const modalFormulario = document.querySelector('#formulario')
+    const modalBootstrap = bootstrap.Modal.getInstance(modalFormulario)
+    modalBootstrap.hide()
+
 }
