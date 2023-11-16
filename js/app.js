@@ -56,6 +56,11 @@ function obtenerPlatillos() {
     const url = 'http://localhost:4000/platillos'
 
     fetch(url)
-        .then(respuesta => console.log(respuesta))
+        .then(respuesta => respuesta.json())
+        .then(resultado => mostarPlatillos(resultado))
         .catch(error => console.log(error))
+}
+
+function mostarPlatillos(platillos) {
+    console.log(platillos)
 }
