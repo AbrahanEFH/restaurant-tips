@@ -96,7 +96,7 @@ function mostarPlatillos(platillos) {
         // Funcion que detecta la cantidad y el platillo que se esta agregando
         inputCantidad.onchange = function () {
             const cantidad = parseInt(inputCantidad.value)
-            agregarPlatillo({ platillo, cantidad })
+            agregarPlatillo({ ...platillo, cantidad })
         }
 
         const agregar = document.createElement('DIV')
@@ -112,6 +112,6 @@ function mostarPlatillos(platillos) {
     })
 }
 
-function agregarPlatillo(id) {
+function agregarPlatillo(producto) {
 
 }
