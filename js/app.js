@@ -88,9 +88,16 @@ function mostarPlatillos(platillos) {
 
         const inputCantidad = document.createElement('INPUT')
         inputCantidad.type = 'number'
-        inputCantidad.min = 0;
+        inputCantidad.min = 0
+        inputCantidad.value = 0
         inputCantidad.id = `producto-${platillo.id}`
         inputCantidad.classList.add('form-control')
+
+        // Funcion que detecta la cantidad y el platillo que se esta agregando
+        inputCantidad.onchange = function () {
+            const cantidad = parseInt(inputCantidad.value)
+            agregarPlatillo({ platillo, cantidad })
+        }
 
         const agregar = document.createElement('DIV')
         agregar.classList.add('col-md-2')
@@ -103,4 +110,8 @@ function mostarPlatillos(platillos) {
 
         contenido.appendChild(row)
     })
+}
+
+function agregarPlatillo(id) {
+
 }
