@@ -138,7 +138,9 @@ function agregarPlatillo(producto) {
         const resultado = pedido.filter(articulo => articulo.id !== producto.id)
         cliente.pedido = [...resultado]
     }
-    console.log(cliente.pedido)
+
+    //Limpiar codifo HTML previo
+    limpiarHTML()
 
     // Mostramos el resumen en pantalla
     actualizarResumen()
@@ -172,6 +174,17 @@ function actualizarResumen() {
     mesa.appendChild(mesaSpan)
     hora.appendChild(horaSpan)
 
-    contenido.appendChild(mesa)
-    contenido.appendChild(hora)
+    resumen.appendChild(mesa)
+    resumen.appendChild(hora)
+
+    contenido.appendChild(resumen)
+
+}
+
+function limpiarHTML() {
+    const contenido = document.querySelector('#resumen .contenido')
+
+    while (contenido.firstChild) {
+        contenido.removeChild(contenido.firstChild)
+    }
 }
