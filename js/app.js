@@ -179,10 +179,33 @@ function actualizarResumen() {
     heading.textContent = 'Platos Consumidos'
     heading.classList.add('my-4', 'text-center')
 
+    //Iterar sobre el array de pedidos
+    const grupo = document.createElement('UL')
+    grupo.classList.add('list-group')
+
+    const { pedido } = cliente
+    pedido.forEach(articulo => {
+        const { nombre, cantidad, precio, id } = articulo
+
+        const lista = document.createElement('LI')
+        lista.classList.add('list-group-item')
+
+        const nombreEl = document.createElement('H4')
+        nombreEl.classList.add('my-4')
+        nombreEl.textContent = nombre
+
+        // Agregar Elementos al LI
+        lista.appendChild(nombreEl)
+
+
+        grupo.appendChild(lista)
+    })
+
     //Agregar al contenido
     resumen.appendChild(mesa)
     resumen.appendChild(hora)
     resumen.appendChild(heading)
+    resumen.appendChild(grupo)
 
     contenido.appendChild(resumen)
 
