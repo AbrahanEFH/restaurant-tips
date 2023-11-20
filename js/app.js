@@ -226,6 +226,11 @@ function actualizarResumen() {
         btnEliminar.classList.add('btn', 'btn-danger', 'fw-bold')
         btnEliminar.textContent = 'Eliminar Producto'
 
+        // Funcion del Button para eliminar el pedido
+        btnEliminar.onclick = function () {
+            eliminarProducto(id)
+        }
+
         // Agregar valores a aus contenedores
         cantidadEl.appendChild(cantidadValor)
         precioEl.appendChild(precioValor)
@@ -264,4 +269,14 @@ function limpiarHTML() {
 
 function calcularSubtotal(precio, cantidad) {
     return `$ ${precio * cantidad}`
+}
+
+function eliminarProducto(id) {
+    const { pedido } = cliente
+    const resultado = pedido.filter(articulo => articulo.id !== id)
+    cliente.pedido = [...resultado]
+
+    limpiarHTML()
+
+    actualizarResumen()
 }
