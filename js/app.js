@@ -203,10 +203,42 @@ function actualizarResumen() {
         cantidadValor.classList.add('fw-normal')
         cantidadValor.textContent = cantidad
 
+        // Precio del articulo
+        const precioEl = document.createElement('P')
+        precioEl.classList.add('fw-bold')
+        precioEl.textContent = 'Precio: '
+
+        const precioValor = document.createElement('SPAN')
+        precioValor.classList.add('fw-normal')
+        precioValor.textContent = `$${precio}`
+
+        // SubTotal del articulo
+        const subtotalEl = document.createElement('P')
+        subtotalEl.classList.add('fw-bold')
+        subtotalEl.textContent = 'Subtotal: '
+
+        const subtotalValor = document.createElement('SPAN')
+        subtotalValor.classList.add('fw-normal')
+        subtotalValor.textContent = calcularSubtotal(precio, cantidad)
+
+        // Boton de eliminar
+        const btnEliminar = document.createElement('BUTTON')
+        btnEliminar.classList.add('btn', 'btn-danger', 'fw-bold')
+        btnEliminar.textContent = 'Eliminar Producto'
+
+        // Agregar valores a aus contenedores
+        cantidadEl.appendChild(cantidadValor)
+        precioEl.appendChild(precioValor)
+        subtotalEl.appendChild(subtotalValor)
+
 
 
         // Agregar Elementos al LI
         lista.appendChild(nombreEl)
+        lista.appendChild(cantidadEl)
+        lista.appendChild(precioEl)
+        lista.appendChild(subtotalEl)
+        lista.appendChild(btnEliminar)
 
 
         grupo.appendChild(lista)
@@ -228,4 +260,8 @@ function limpiarHTML() {
     while (contenido.firstChild) {
         contenido.removeChild(contenido.firstChild)
     }
+}
+
+function calcularSubtotal(precio, cantidad) {
+    return `$ ${precio * cantidad}`
 }
