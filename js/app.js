@@ -194,6 +194,17 @@ function actualizarResumen() {
         nombreEl.classList.add('my-4')
         nombreEl.textContent = nombre
 
+        // Cantidad del articulo
+        const cantidadEl = document.createElement('P')
+        cantidadEl.classList.add('fw-bold')
+        cantidadEl.textContent = 'Cantidad: '
+
+        const cantidadValor = document.createElement('SPAN')
+        cantidadValor.classList.add('fw-normal')
+        cantidadValor.textContent = cantidad
+
+
+
         // Agregar Elementos al LI
         lista.appendChild(nombreEl)
 
@@ -201,7 +212,7 @@ function actualizarResumen() {
         grupo.appendChild(lista)
     })
 
-    //Agregar al contenido
+    //Agregar al contenido  
     resumen.appendChild(mesa)
     resumen.appendChild(hora)
     resumen.appendChild(heading)
