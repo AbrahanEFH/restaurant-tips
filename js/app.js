@@ -280,3 +280,13 @@ function eliminarProducto(id) {
 
     actualizarResumen()
 }
+
+function mensajePedidoVacio() {
+    const contenido = document.querySelector('#resumen .contenido')
+
+    const texto = document.createElement('P')
+    texto.classList.add('text-center')
+    texto.textContent = ' Agrega los elementos del pedido'
+
+    contenido.appendChild(texto)
+}
