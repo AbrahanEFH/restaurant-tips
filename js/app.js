@@ -256,9 +256,9 @@ function actualizarResumen() {
     })
 
     //Agregar al contenido  
+    resumen.appendChild(heading)
     resumen.appendChild(mesa)
     resumen.appendChild(hora)
-    resumen.appendChild(heading)
     resumen.appendChild(grupo)
 
     contenido.appendChild(resumen)
@@ -314,10 +314,14 @@ function formularioPropinas() {
     const formulario = document.createElement('DIV')
     formulario.classList.add('col-md-6', 'formulario')
 
+    const divFormulario = document.createElement('DIV')
+    divFormulario.classList.add('card', 'py-5', 'px-3', 'shadow')
+
     const heading = document.createElement('H3')
-    heading.classList.add('my-4')
+    heading.classList.add('my-4', 'text-center')
     heading.textContent = 'Propina'
 
-    formulario.appendChild(heading)
+    divFormulario.appendChild(heading)
+    formulario.appendChild(divFormulario)
     contenido.appendChild(formulario)
 }
