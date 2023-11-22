@@ -142,8 +142,14 @@ function agregarPlatillo(producto) {
     //Limpiar codifo HTML previo
     limpiarHTML()
 
-    // Mostramos el resumen en pantalla
-    actualizarResumen()
+    if (cliente.pedido.length) {
+
+        // Mostramos el resumen en pantalla
+        actualizarResumen()
+    } else {
+        mensajePedidoVacio()
+    }
+
 }
 
 function actualizarResumen() {
