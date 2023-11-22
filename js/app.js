@@ -263,6 +263,8 @@ function actualizarResumen() {
 
     contenido.appendChild(resumen)
 
+    // Mostrar formulario de propinas
+    formularioPropinas()
 }
 
 function limpiarHTML() {
@@ -305,4 +307,17 @@ function mensajePedidoVacio() {
     texto.textContent = ' Agrega los elementos del pedido'
 
     contenido.appendChild(texto)
+}
+
+function formularioPropinas() {
+    const contenido = document.querySelector('#resumen .contenido')
+    const formulario = document.createElement('DIV')
+    formulario.classList.add('col-md-6', 'formulario')
+
+    const heading = document.createElement('H3')
+    heading.classList.add('my-4')
+    heading.textContent = 'Propina'
+
+    formulario.appendChild(heading)
+    contenido.appendChild(formulario)
 }
