@@ -404,10 +404,62 @@ function calcularPropina() {
     // Calcular la propina
     const propina = ((subtotal * parseInt(propinaSeleccionada)) / 100)
 
-    console.log(propina)
-
     // Clacular el total a pagar
 
     const total = subtotal + propina
-    console.log(total)
+
+    mostrarTotal(subtotal, total, propina)
+}
+
+function mostrarTotal(subtotal, total, propina) {
+
+    const divTotales = document.createElement('DIV')
+    divTotales.classList.add('total-pagar')
+
+
+    // Subtotal
+    const subtotalParrafo = document.createElement('P')
+    subtotalParrafo.classList.add('fs-3', 'fw-bold', 'mt-3')
+    subtotalParrafo.textContent = 'Subtotal consumo: '
+
+    const subtotalSpan = document.createElement('span')
+    subtotalSpan.classList.add('fw-normal')
+    subtotalSpan.textContent = `$${subtotal}`
+
+    subtotalParrafo.appendChild(subtotalSpan)
+
+    // Propina
+    const propinaParrafo = document.createElement('P')
+    propinaParrafo.classList.add('fs-3', 'fw-bold', 'mt-3')
+    propinaParrafo.textContent = 'Propina: '
+
+    const propinaSpan = document.createElement('span')
+    propinaSpan.classList.add('fw-normal')
+    propinaSpan.textContent = `$${propina}`
+
+    propinaParrafo.appendChild(propinaSpan)
+
+    // Total
+    const totalParrafo = document.createElement('P')
+    totalParrafo.classList.add('fs-3', 'fw-bold', 'mt-3')
+    totalParrafo.textContent = 'Total a pagar: '
+
+    const totalSpan = document.createElement('span')
+    totalSpan.classList.add('fw-normal')
+    totalSpan.textContent = `$${total}`
+
+    totalParrafo.appendChild(totalSpan)
+
+    // Eliminar el ultimo resultado
+    const totalPagar = document.querySelector('.total-pagar')
+    if (totalPagar) {
+        totalPagar.remove()
+    }
+
+    divTotales.appendChild(subtotalParrafo)
+    divTotales.appendChild(propinaParrafo)
+    divTotales.appendChild(totalParrafo)
+
+    const formulario = document.querySelector('.formulario > div')
+    formulario.appendChild(divTotales)
 }
