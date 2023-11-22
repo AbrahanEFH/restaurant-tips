@@ -284,7 +284,17 @@ function eliminarProducto(id) {
 
     limpiarHTML()
 
-    actualizarResumen()
+    if (cliente.pedido.length) {
+
+        actualizarResumen()
+    } else {
+        mensajePedidoVacio()
+    }
+
+    // El producto se elimino. Reiniciar contador del formulario
+    const productoEliminado = `#producto-{id}`
+    const inputEliminado = document.querySelector(productoEliminado)
+    inputEliminado.value = 0
 }
 
 function mensajePedidoVacio() {
